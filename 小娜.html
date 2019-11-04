@@ -17,16 +17,32 @@
                 " 3.讲个《笑话》\n")
             
             switch( about ){
+                //输入1
                 case '1' :
                 case '总和':
-                var arr = prompt('请输入要求和的数字，使用逗号隔开，例如： 1,2,3,4')
-                var num = arr.split(',');
-                var sum = 0;
-                for( var i = 0 ; i < num.length; i++){
-                    sum += parseFloat(num[i])
-                }
-               alert(sum)
+                    var arr = prompt('请输入要求和的数字，使用逗号隔开，例如： 1,2,3,4')
+                    var num = arr.split(',');
+                    var sum = 0;
+                    for( var i = 0 ; i < num.length; i++){
+                        sum += parseFloat(num[i])
+                    }
+                    alert(sum)
                 break;
+
+                //输入2
+                case '2':
+                    var data = new Date();
+                    var year = data.getFullYear();
+                    var month = data.getMonth();
+                    var today = data.getDate();
+
+                    var hour = data.getHours();
+                    var minutes = data.getMinutes();
+                    var second = data.getSeconds();
+
+                    alert('当前时间：'+ year)
+                break;
+
             }
 
 
