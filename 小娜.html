@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我是小娜</title>
+</head>
+<body>
+    
+    <script>
+        while( true ){
+            var about = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+                "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
+                " 1.计算《总和》\n" +
+                " 2.获取《时间》\n" +
+                " 3.讲个《笑话》\n")
+            
+            switch( about ){
+                case '1' :
+                case '总和':
+                var arr = prompt('请输入要求和的数字，使用逗号隔开，例如： 1,2,3,4')
+                var num = arr.split(',');
+                var sum = 0;
+                for( var i = 0 ; i < num.length; i++){
+                    sum += parseFloat(num[i])
+                }
+               alert(sum)
+                break;
+            }
+
+
+            //按q结束当前程序
+            if( about == 'q'){
+                alert('程序结束');
+                break;
+            }
+        }
+    //   console.log(about )
+    </script>
+</body>
+</html>
