@@ -8,17 +8,17 @@
 </head>
 <body>
     <script>
-        function a(callback){
-            var c = 10;
-            callback(c);
-            console.log(callback);
-        }
-        a(b);
+     function a(callback){
+         var b = 10;
+        console.log(b)
+        callback();
+    }
 
-        function b(c){
-            var d = 20;
-            console.log(c);
-        }
+    function c(){
+        var d = 20;
+        console.log(d);
+    }
+    a(c);
     </script>
 </body>
 </html>
