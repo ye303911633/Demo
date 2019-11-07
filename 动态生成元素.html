@@ -17,12 +17,21 @@
             text-align: center;
             border: 1px solid #000;
         }
+        .box{
+            position: absolute;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
     </style>
 </head>
 <body>
     
     <button>生成元素</button>
     <div class="box"></div>
+    <div class="box1"></div>
 
 
     <script>
@@ -32,19 +41,10 @@
 
         btn.onclick = function(){
             var noCreate = box.children;
-            console.log(noCreate)
-            if(noCreate.length > 0) return ;
-
+            // console.log(noCreate)
+            
             var uldoms = document.createElement('ul')
-            var pd = true;
-            if(pd){
-                box.appendChild(uldoms)
-                pd = false;
-            }else{
-                box.removeChild(uldoms)
-                
-                return  pd = true;;
-            }
+            box.appendChild(uldoms)
 
             for( var i = 0; i < listdom.length; i++){
                 var lidoms = document.createElement('li')
@@ -60,6 +60,12 @@
                 lidoms.onmouseout = function(){
                     this.style.background = bg;
                 }
+            }
+
+            
+            if(noCreate.length > 1){
+                box.removeChild(box.children[0]);
+                box.removeChild(box.children[0]);
             }
         }
           

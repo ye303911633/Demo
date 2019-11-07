@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        p{
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>123</p>
+    </div>
+    <script>
+    
+        // var arr = [1,2,3,4,5,6,100,20,130]
+        // arr.forEach(function(item,index){
+        //     console.log(item+ '---' + index)
+        // })
+
+        // arr.forEach((item,index)=>{
+        //     console.log(item+ '---' + index)
+        // })
+
+            // setInterval(function () { 
+            //     console.log(1)
+            // },1000)
+               
+        var boxdom = document.getElementsByClassName('box')[0]
+        // var op = boxdom.children;
+        var op = document.getElementsByTagName('p')[0]
+        
+        boxdom.onclick = function(){
+            console.log('我是box');
+            
+            // console.log(e.target)
+            // console.log(e.target.innerHTML)
+        }
+        // op.onclick = function(){
+        //     console.log('我是p');
+        // }
+
+        document.onkeydown = function(e){
+            console.log(e)
+        }
+        
+
+
+    </script>
+</body>
+</html>

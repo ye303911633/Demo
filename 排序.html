@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello AJAX </h1>
+
+    <script>
+        var num = [100,21,13,44,25,16,27,18,39];
+
+        // 从小到大排序
+        fn(num);
+        function fn(arguments) { 
+            for(var i = 0; i < arguments.length; i++ ){
+                // console.log(arguments[1])
+                for(var j = i + 1 ; j < arguments.length; j++){
+                    if( arguments[i] > arguments[j]){
+                        var temp = arguments[i];
+                        arguments[i] = arguments[j];
+                        arguments[j] = temp;
+                    }
+                    // console.log(arguments[j])
+                }
+            }
+            console.log(arguments);
+        }
+        
+        //sort排序
+        // console.log(num.sort(function(a,b){
+        //     return a - b ;
+        // }))
+       
+       
+        // 找最小值
+        function findMin(arguments) {
+            var min = arguments[0];
+            for( var i = 1 ; i < arguments.length; i++){
+                if( arguments[i] < min){
+                   min = arguments[i]
+                }
+            }
+            return min;
+        }
+        console.log(findMin(num));
+
+        // 找最大值
+        function findMax(arguments) {
+            var max = arguments[0];
+            for( var i = 1 ; i < arguments.length; i++){
+                if( arguments[i] > max){
+                    max = arguments[i]
+                }
+            }
+            return max;
+        }
+        console.log(findMax(num));
+        
+        //平均数
+        fn2(num)
+        function fn2(arguments){
+            var num = 0;
+            for( var i = 0; i < arguments.length; i++){
+                num += arguments[i]
+            }
+            console.log(num/arguments.length);
+        }
+        
+    </script>
+</body>
+</html>

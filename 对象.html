@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var haha = {
+            name : '老王',
+            age: 20,
+            gender: 'boy',
+            fn: ()=>{
+                return 1;
+            }
+        }
+        console.log(haha.name)
+        console.log(haha.age)
+        console.log(haha.gender)
+        console.log(haha.fn());
+
+        /*
+            for-in的使用
+        for( var key in haha){
+            console.log(haha[key]);
+            
+        }
+        */
+        
+
+        /*
+            自定义函数
+        function fn(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        var s1 = new fn('王大锤',19,'男');
+        console.log(s1)
+        */
+    </script>
+</body>
+</html>
