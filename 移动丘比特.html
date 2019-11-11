@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/tianshi.gif" alt="" style="position: absolute;">
+</body>
+
+<script>
+    let img = document.querySelector('img')
+    document.onmousemove = function(e){
+        let x = e.pageX;
+        let y = e.pageY;
+
+        img.style.left = -20 + x + 'px';
+        img.style.top = -20 + y + 'px';
+    }
+
+</script>
+</html>
