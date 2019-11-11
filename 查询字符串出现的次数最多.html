@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'asbikdbaorfboiiabfgngoinglkjwsnblvnwelgnpqw';
+
+        var arr = {};
+
+        for(var i = 0; i < str.length; i++){
+            var char = str[i];
+            if( arr[char] ){
+                arr[char]++;   //如果出现第二次就自增1
+            }else{
+                arr[char] = 1; //第一次出现就赋值为1,
+            }
+        }
+        console.log(arr)
+
+
+        var max = 0;
+        var maxFound = '';
+        for(var key in arr){
+            if( arr[key] > max ){
+                max = arr[key];
+                maxFound = key;
+            }
+        }
+        console.log(maxFound, max);
+
+    </script>
+</body>
+</html>

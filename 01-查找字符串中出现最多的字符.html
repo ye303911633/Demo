@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+/* 查找一个字符串中出现最多的字符和统计出现的次数 */
+var str = 'adlkgid123k3dwe123dasad553ldkd33j5ddfaidgggsdadkjgisdfaksd';
+
+var obj = {};
+for(var i = 0 ; i < str.length;i++){
+  var char = str[i];
+  /* 使用字符作为对象以键，出现的次数为值 */
+  if(obj[char]){
+    // 出现过了则次数++
+    obj[char]++;
+  }else {
+    // 第一次出现则是1
+    obj[char] = 1;
+  }
+}
+// 遍历对象，得到出现次数最多的字符和次数
+var max = 0;
+var maxChar = '';
+for(var key in obj){
+  if(obj[key] > max){
+    max = obj[key];
+    maxChar = key;
+  }
+}
+console.log(maxChar,max);
+</script>
+</html>

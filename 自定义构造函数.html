@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义构造函数</title>
+</head>
+<body>
+    
+    <script>
+       function Students(name, age, gender, phone){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.phone = phone;
+       }
+
+       var s1 = new Students('学生1', 18, '男', 10000);
+       var s2 = new Students('学生2', 19, '女', 10001);
+       var s3 = new Students('学生3', 20, '男', 10002);
+       var s4 = new Students('学生4', 21, '女', 10003);
+
+       //console.log(s1)
+       for( var key in s1){
+           console.log(s1[key])
+       }
+    </script>
+</body>
+</html>

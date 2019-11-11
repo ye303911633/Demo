@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{ margin: 0; padding: 0;}
+        .box{ width: 500px; height: 500px; border: 1px solid #000; margin: 50px auto;}
+        textarea{ resize: none;}
+        ul{list-style: none;}
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <textarea name="" id="" cols="60" rows="10"></textarea>
+        <input type="button" value="留言">
+        <ul></ul>
+    </div>
+</body>
+
+<script>   
+    let textarea = document.querySelector('textarea');
+    let ul = document.querySelector('ul');
+    let btn = document.querySelector('input')
+
+    btn.onclick = fn;
+    function fn(){
+        let text = textarea.value;
+        if(text == ''){
+            return alert('请输入内容')
+        }else{
+            let li = document.createElement('li');
+            let lis = document.querySelector('li:nth-child(1)')
+            let litext = ul.insertBefore(li,lis);
+            litext.innerHTML = text;
+
+
+            let delBtn = document.createElement('button')
+            let delText = li.appendChild(delBtn)
+            delText.style.float = 'right'
+            delText.innerText = '删除'
+
+            delBtn.onclick = function(){
+                ul.removeChild(this.parentNode)
+            }
+            console.log(delBtn.parentNode.parentNode)
+        }
+        textarea.value = '';
+    }
+
+    // 叶晓彬 https://github.com/ye303911633/tools.git
+
+    textarea.onkeyup = function(e){
+    	if(e.keyCode == 13 && e.ctrlKey){
+    		fn();
+    	}
+    }
+</script>
+</html>
