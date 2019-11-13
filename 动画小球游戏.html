@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin: 0;padding: 0;}
+	.ball{width: 70px;height: 70px;position: absolute;border-radius:50%;background: red;}
+	</style>
+</head>
+<body>
+	<script>
+	var arr = [];
+	for(var i=0; i<10; i++){
+		var div = document.createElement('div');
+		div.className = 'ball';
+		document.body.appendChild(div);
+		div.x = 0;
+		div.y = 0;
+		div.xspeed = i+1;
+		div.yspeed = i+1;
+		arr.push(div);
+
+		div.onclick = function(){
+			var  res = arr.splice(arr.indexOf(this),1);
+			document.body.removeChild(res[0]);
+		};
+	};
+
+	function fn(){
+		var maxW = (document.documentElement.clientWidth || window.innerWidth)-arr[0].offsetWidth,
+			maxH = (document.documentElement.clientHeight || window.innerHeight)-arr[0].offsetHeight;
+
+		arr.forEach(function(item){
+			if(item.x >= maxW){
+				item.xspeed = -item.xspeed;
+				item.x = maxW;
+				item.style.background = color();
+			}
+			if(item.x <= 0){
+				item.xspeed = -item.xspeed;
+				item.x = 0;
+				item.style.background = color();
+			}
+			if(item.y >= maxH){
+				item.yspeed = -item.yspeed;
+				item.y = maxH;
+				item.style.background = color();
+			}
+			if(item.y <= 0){
+				item.yspeed = -item.yspeed;
+				item.y = 0;
+				item.style.background = color();
+			}
+			item.x += item.xspeed;
+			item.y += item.yspeed;
+			item.style.left = item.x + 'px';
+			item.style.top = item.y + 'px';
+		});
+		window.requestAnimationFrame(fn);
+	};
+	fn();
+
+	function color(){
+		var r = Math.floor(Math.random()*256);
+		var g = Math.floor(Math.random()*256);
+		var b = Math.floor(Math.random()*256);
+		return `rgb(${r},${g},${b})`;
+	};	
+
+	</script>
+</body>
+</html>
