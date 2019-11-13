@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin: 0;padding: 0}
+	#wrap{width: 300px;height: 70px;border: 1px solid red;margin: 50px auto;}
+	input{margin-left: 5px;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<input type="button" value="chance" id="btn"><br><br>
+		<label><input type="checkbox" id="apple">apple</label>
+		<label><input type="checkbox" id="tomato">tomato</label>
+		<label><input type="checkbox" id="pear">pear</label>
+		<label><input type="checkbox" id="banana">banana</label>
+	</div>
+
+	<script>
+	var btn = document.getElementById('btn');
+	var input = document.getElementsByTagName('input');
+
+	btn.onclick = function(){
+		for(var i=0;i<input.length;i++){
+			input[i].checked = !input[i].checked;
+		}
+	};
+	</script>
+</body>
+</html>

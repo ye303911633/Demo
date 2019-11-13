@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索关键字</title>
+	<style type="text/css">
+	*{margin:0;padding:0;}
+	#wrap{
+		width: 500px;
+		height: 200px;
+		border: 1px solid red;
+		margin: 50px auto;
+	}
+	#box{
+		width: 300px;
+		height: 100px;
+		margin: 50px auto;
+	}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+	背诵赏析注释译文
+水调歌头·明月几时有
+
+宋代：苏轼
+
+丙辰中秋，欢饮达旦，大醉，作此篇，兼怀子由。
+
+明月几时有？把酒问青天。不知天上宫阙，今夕是何年。我欲乘风归去，又恐琼楼玉宇，高处不胜寒。起舞弄清影，何似在人间？(何似 一作：何时；又恐 一作：惟 / 唯恐)
+转朱阁，低绮户，照无眠。不应有恨，何事长向别时圆？人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。(长向 一作：偏向)
+	</div>
+
+	<p id="box">
+		<input type="text" id="txt" placeholder="请输入...">
+		<input type="button" id="btn" value="搜索">
+	</p>
+
+	<script>
+		var wrap = document.getElementById('wrap');
+		var txt = document.getElementById('txt');
+		var btn = document.getElementById('btn');
+		var html = wrap.innerHTML;
+
+		btn.onclick = function(){
+			var targer = txt.value;
+			search(html,targer);
+		};
+		
+		txt.onfocus = function(){
+			document.onkeyup = function(){
+				var targer = txt.value;
+				search(html,targer);
+			}	
+		};
+
+		//封装search
+		function search(html,targer){
+			var res = html.split(targer);
+			var htmls = res.join("<span style='background:yellow;color:red'>"+targer+"</span>")
+			wrap.innerHTML = htmls;
+		};
+	</script>
+</body>
+</html>

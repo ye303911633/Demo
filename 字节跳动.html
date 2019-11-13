@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="text"></div>
+
+	<script>
+		var arr = [];
+		arr.push("让我做你的眼,说那样你才看的清！");
+		arr.push("夜空中最亮的星！");
+		arr.push("Any message for me?");
+
+		var arr1 = arr[0].length;
+		var oText = document.getElementById('text');
+		var pos = 1;
+		var row = 0;
+		var p = "";
+		var index = 0;
+		var len = arr.length;
+		var timer = null;
+
+		function printText(){
+			while(row < index){
+				p = p + arr[row++]+"<br/>";
+			}
+			oText.innerHTML = p + arr[index].substring(0,pos);
+			if(pos == arr1){
+				index++;
+				pos = 0;
+				if(index < len){
+					arr1 = arr[index].length;
+					timer = setTimeout(printText,200);
+				}else{
+					clearTimeout(timer);
+				}
+			}else{
+				pos++;
+				timer = setTimeout(printText,200);
+			}
+		};
+		printText(); 
+	</script>
+</body>
+</html>
