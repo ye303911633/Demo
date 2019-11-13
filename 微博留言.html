@@ -99,17 +99,25 @@
         let textarea = document.querySelector('textarea');
         let btn = document.querySelector('input');
         let ul = document.querySelector('ul');
+        let weibo = document.querySelector('.weibo');
  
 
-        btn.onclick = function(){
+        btn.addEventListener('click',function(e){
             let li = document.createElement('li');
-            let litext = ul.appendChild(li);
+            let first = document.querySelector('li:nth-child(1)')
+            let litext = ul.insertBefore(li,first);
 
             litext.innerHTML ='<p>'+textarea.value+'</p><span>删除</span>';
             textarea.value = '';
-            delSpan();
-        }
+            // delSpan();
+        })
+        ul.addEventListener('click', function (e) { 
+            if( e.target.nodeName === 'SPAN'){
+                ul.removeChild(e.target.parentNode)
+            }
+        })        
 
+        /*
         function delSpan(){
             let li = document.querySelectorAll('li');
             let span = document.querySelectorAll('span');
@@ -119,7 +127,7 @@
                 }
             }
         }
-        delSpan();
-        
+        // delSpan();
+        */
     </script>
 </html>
