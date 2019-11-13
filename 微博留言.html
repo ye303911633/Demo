@@ -109,25 +109,11 @@
 
             litext.innerHTML ='<p>'+textarea.value+'</p><span>删除</span>';
             textarea.value = '';
-            // delSpan();
         })
         ul.addEventListener('click', function (e) { 
             if( e.target.nodeName === 'SPAN'){
                 ul.removeChild(e.target.parentNode)
             }
         })        
-
-        /*
-        function delSpan(){
-            let li = document.querySelectorAll('li');
-            let span = document.querySelectorAll('span');
-            for(let i = 0; i < li.length; i++){
-                span[i].onclick = function(){
-                    ul.removeChild(this.parentNode)
-                }
-            }
-        }
-        // delSpan();
-        */
     </script>
 </html>
