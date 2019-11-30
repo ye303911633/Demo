@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            border-bottom: 0 none;
+        }
+
+        .row {
+            display: flex;
+            border-bottom: 1px solid #000;
+        }
+
+        .item {
+            width: 100px;
+            height: 40px;
+            border-right: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            height: 357px;
+            flex: 0 0 100%;
+            display: none;
+            line-height: 357px;
+            text-align: center;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="row">
+            <div class="item active">影音</div>
+            <div class="item">书籍</div>
+            <div class="item">零食</div>
+        </div>
+        <div class="row">
+            <div class="content show">影音的内容</div>
+            <div class="content">书籍的内容</div>
+            <div class="content">零食的内容</div>
+        </div>
+    </div>
+</body>
+<script>
+    //原生
+    /*
+    let items = document.querySelectorAll('.item')
+    let content = document.querySelectorAll('.content')
+    
+    items.forEach(function(e,i){
+        e.onmouseover = function(){
+            items.forEach(e=>{
+                e.classList.remove('active')
+            })
+            this.classList.add('active')
+            content.forEach(e => {
+                e.classList.remove('show')
+            });
+            content[i].classList.add('show')
+        }
+    })
+    */
+
+    // 封装Tab类
+    class Tab {
+        constructor(itemClass, contentClass, itemActive, contentShow, onType) {
+            this.itemClass = itemClass || '.item',
+                this.contentClass = contentClass || '.content',
+                this.itemActive = itemActive || 'active',
+                this.contentShow = contentShow || 'show',
+                this.onType = onType || 'mouseover',
+                this.item = document.querySelectorAll(this.itemClass)
+            this.content = document.querySelectorAll(this.contentClass)
+            this.addEvent()
+        }
+
+        //触发事件
+        addEvent() {
+            this.item.forEach((e, i) => {
+                e.addEventListener(this.onType, (e) => {
+                    let target = e.target;
+                    this.changItem(target)
+                    this.changContent(i)
+                })
+            })
+        }
+
+        // 改变item的方法
+        changItem(a) {
+            this.item.forEach((e) => {
+                e.classList.remove(this.itemActive)
+            })
+            a.classList.add(this.itemActive)
+        }
+
+        // 改变content的方法
+        changContent(i) {
+            this.content.forEach((e) => {
+                e.classList.remove(this.contentShow)
+            })
+            this.content[i].classList.add(this.contentShow)
+        }
+
+    }
+
+    let a = new Tab();
+
+</script>
+</html>
