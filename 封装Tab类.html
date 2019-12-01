@@ -89,15 +89,17 @@
 
     // 封装Tab类
     class Tab {
-        constructor(itemClass, contentClass, itemActive, contentShow, onType) {
+        constructor(itemClass, contentClass, itemActive, contentShow, onType, timer) {
             this.itemClass = itemClass || '.item',
                 this.contentClass = contentClass || '.content',
                 this.itemActive = itemActive || 'active',
                 this.contentShow = contentShow || 'show',
                 this.onType = onType || 'mouseover',
+                this.timer = timer,
                 this.item = document.querySelectorAll(this.itemClass)
             this.content = document.querySelectorAll(this.contentClass)
             this.addEvent()
+            this.autoPlay()      
         }
 
         //触发事件
@@ -107,8 +109,10 @@
                     let target = e.target;
                     this.changItem(target)
                     this.changContent(i)
+                    clearInterval(this.timer)
                 })
             })
+                
         }
 
         // 改变item的方法
@@ -125,6 +129,17 @@
                 e.classList.remove(this.contentShow)
             })
             this.content[i].classList.add(this.contentShow)
+        }
+
+        autoPlay(){
+            let index = 0;
+            this.timer = setInterval(()=>{
+                index++;
+                index %= 3;
+
+                this.changItem(this.item[index])
+                this.changContent(index)
+            },1000)
         }
 
     }
